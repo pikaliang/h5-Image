@@ -71,7 +71,7 @@
 <body>
     <div id="app">
         <div class="main" id="main">
-            <ul>
+            <ul id="content">
                 <li v-for="(title, index) in list">{{title}}</li>
             </ul>
         </div>
@@ -132,12 +132,13 @@
                 }
             },
             mounted() {
-                this.$nextTick(function() {
-                    let main = document.getElementById('main');
-                    main.scrollTop = main.scrollHeight;
-                    alert(main.scrollHeight)
-                    alert(main.scrollTop)
-                })
+
+                let content = document.getElementById('content');
+                content.scrollTop = main.scrollHeight+'px';
+                console.log("main.scrollHeight", main.scrollHeight);
+                console.log("main.scrollTo", main.scrollTop)
+                // alert(main.scrollHeight)
+                // alert(main.scrollTop)
                 document.getElementById('input').addEventListener("focus", this.fn, true)
                 document.getElementById('input').addEventListener("blur", this.fn1, true)
             },
