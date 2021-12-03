@@ -131,17 +131,14 @@
                 }
             },
             mounted() { 
-                window.addEventListener("resize", this.keyBoardUp, true)
+                window.addEventListener("focus", this.keyBoardUp, true)
             },
             methods: {
                 keyBoardUp() {
                     // let body = document.getElementsByTagName('body');
                     // body.scrollTop = 9999999999 + 'px';
                     let input = document.getElementById('input1');
-                    input.scrollIntoView({
-                        block: 'end',
-                        behavior: 'smooth'
-                    })
+                    input.scrollIntoViewIfNeeded(true)
                     let main = document.getElementById('main');
                     console.log("main", main.scrollHeight)
                     main.scrollTop = main.scrollHeight;
