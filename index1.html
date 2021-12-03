@@ -132,8 +132,8 @@
                 }
             },
             mounted() {
-                let main = document.getElementById('main');
                 this.$nextTick(function() {
+                    let main = document.getElementById('main');
                     main.scrollTop = main.scrollHeight;
                     alert(main.scrollHeight)
                     alert(main.scrollTop)
