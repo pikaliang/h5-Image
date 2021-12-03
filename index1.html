@@ -157,7 +157,8 @@
                         block: 'end',
                         behavior: 'smooth'
                     })
-                    this.fn2();
+                    let main = document.getElementById('main');
+                    main.scrollTop = main.scrollHeight+'px';
                 }
             },
             destroyed() {
