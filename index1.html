@@ -132,7 +132,12 @@
                 }
             },
             mounted() {
-                this.fn2();
+                let main = document.getElementById('main');
+                this.$nextTick(() => {
+                    main.scrollTop = main.scrollHeight;
+                    alert(main.scrollHeight)
+                    alert(main.scrollTop)
+                })
                 document.getElementById('input').addEventListener("focus", this.fn, true)
                 document.getElementById('input').addEventListener("blur", this.fn1, true)
             },
@@ -145,11 +150,9 @@
                 },
                 fn2() {
                     let main = document.getElementById('main');
-                    this.$nextTick(() => {
-                        main.scrollTop = main.scrollHeight;
-                        alert(main.scrollHeight)
-                        alert(main.scrollTop)
-                    })
+                    main.scrollTop = main.scrollHeight;
+                    alert(main.scrollHeight)
+                    alert(main.scrollTop)
                 },
                 keyBoardUp() {
                     // let body = document.getElementsByTagName('body');
@@ -159,6 +162,7 @@
                         block: 'end',
                         behavior: 'smooth'
                     })
+                    this.fn2();
                 }
             },
             destroyed() {
