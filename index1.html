@@ -133,7 +133,7 @@
             },
             mounted() {
                 let main = document.getElementById('main');
-                this.$nextTick(() => {
+                this.$nextTick(function() {
                     main.scrollTop = main.scrollHeight;
                     alert(main.scrollHeight)
                     alert(main.scrollTop)
@@ -151,8 +151,6 @@
                 fn2() {
                     let main = document.getElementById('main');
                     main.scrollTop = main.scrollHeight;
-                    alert(main.scrollHeight)
-                    alert(main.scrollTop)
                 },
                 keyBoardUp() {
                     // let body = document.getElementsByTagName('body');
