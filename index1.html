@@ -132,17 +132,18 @@
             },
             mounted() {
                 
-                window.addEventListener("resize", this.keyBoardUp, true)
+                document.getElementById("input").addEventListener("focus", this.keyBoardUp, true)
             },
             methods: {
                 keyBoardUp() {
-                    let body = document.getElementsByTagName('body');
-                    body.scrollTop = 9999999999 + 'px';
-                    let main = document.getElementById('main');
-                    main.scrollIntoView({
-                        block: 'start',
+                    // let body = document.getElementsByTagName('body');
+                    // body.scrollTop = 9999999999 + 'px';
+                    let input = document.getElementsByClassName('input');
+                    input.scrollIntoView({
+                        block: 'end',
                         behavior: 'smooth'
                     })
+                    // main.scrollIntoViewIfNeeded(true)
                     // console.log("main",main.scrollIntoView())
                     // main.scrollTop = main.scrollTop;
                 }
