@@ -131,21 +131,21 @@
                 }
             },
             mounted() { 
-                window.addEventListener("focus", this.keyBoardUp, true)
+                window.addEventListener("resize", this.keyBoardUp, true)
             },
             methods: {
                 keyBoardUp() {
                     // let body = document.getElementsByTagName('body');
                     // body.scrollTop = 9999999999 + 'px';
                     let input = document.getElementById('input1');
-                    input.scrollIntoView({
-                        block: 'end',
-                        behavior: 'smooth'
-                    })
+                    input.scrollIntoViewIfNeeded(true)
+                    // input.scrollIntoView({
+                    //     block: 'end',
+                    //     behavior: 'smooth'
+                    // })
                     let main = document.getElementById('main');
-                    console.log("main", main.scrollHeight)
                     main.scrollTop = main.scrollHeight;
-                    // main.scrollIntoViewIfNeeded(true)
+                    
                     // console.log("main",main.scrollIntoView())
                     // main.scrollTop = main.scrollTop;
                 }
