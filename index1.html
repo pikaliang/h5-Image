@@ -131,10 +131,15 @@
                 }
             },
             mounted() { 
-                let input = document.getElementById('input1');
-                input.addEventListener("focus", this.keyBoardUp, true)
+                document.getElementById('input').addEventListener("focus", this.fn, true)
+                if (this.isListener == true) {
+                    window.addEventListener("resize", this.keyBoardUp, true)
+                }
             },
             methods: {
+                fn() {
+                    this.isListener = true;
+                },
                 keyBoardUp() {
                     // let body = document.getElementsByTagName('body');
                     // body.scrollTop = 9999999999 + 'px';
@@ -145,9 +150,7 @@
                     })
                     let main = document.getElementById('main');
                     main.scrollTop = main.scrollHeight;
-                    
-                    // console.log("main",main.scrollIntoView())
-                    // main.scrollTop = main.scrollTop;
+                    this.isListener = false;
                 }
             },
             destroyed() {
