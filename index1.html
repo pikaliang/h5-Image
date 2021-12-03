@@ -128,20 +128,21 @@
 
 
                     ],
-                    isListener: false
+                    isListener: true
                 }
             },
-            mounted() { 
-                document.getElementById('input').addEventListener("focus", this.fn, true)
+            mounted() {
+                document.getElementById('input').addEventListener("blur", this.fn, true)
+                document.getElementById('input').addEventListener("focus", function() {
+                    this.isListener = true;
+                }, true)
                 if (this.isListener) {
                     window.addEventListener("resize", this.keyBoardUp, true)
                 }
             },
             methods: {
                 fn() {
-                    setTimeout(() => {
-                        this.isListener = true;
-                    }, 500)
+                    this.isListener = false
                 },
                 keyBoardUp() {
                     // let body = document.getElementsByTagName('body');
@@ -153,7 +154,7 @@
                     })
                     let main = document.getElementById('main');
                     main.scrollTop = main.scrollHeight;
-                    this.isListener = false;
+                    this.isListener = true;
                 }
             },
             destroyed() {
