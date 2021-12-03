@@ -81,6 +81,7 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         !function (n) {
             var e = n.document,
@@ -132,24 +133,20 @@
                 }
             },
             mounted() {
-
-                let content = document.getElementById('content');
-                content.scrollTop = main.scrollHeight+'px';
-                console.log("main.scrollHeight", main.scrollHeight);
-                console.log("main.scrollTo", main.scrollTop)
-                // alert(main.scrollHeight)
-                // alert(main.scrollTop)
-                document.getElementById('input').addEventListener("focus", this.fn, true)
-                document.getElementById('input').addEventListener("blur", this.fn1, true)
+                // setTimeout(() => {
+                //     this.scrollToBottom();
+                // }, 100)
+                document.getElementById('input').addEventListener("focus", this.addListener, true)
+                document.getElementById('input').addEventListener("blur", this.removeListener, true)
             },
             methods: {
-                fn1() {
+                removeListener() {
                     window.removeEventListener("resize", this.keyBoardUp, true)
                 },
-                fn() {
+                addListener() {
                     window.addEventListener("resize", this.keyBoardUp, true)
                 },
-                fn2() {
+                scrollToBottom() {
                     let main = document.getElementById('main');
                     main.scrollTop = main.scrollHeight;
                 },
@@ -161,7 +158,7 @@
                         block: 'end',
                         behavior: 'smooth'
                     })
-                    this.fn2();
+                    this.scrollToBottom();
                 }
             },
             destroyed() {
