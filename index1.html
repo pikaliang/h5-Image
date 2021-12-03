@@ -128,21 +128,19 @@
 
 
                     ],
-                    isListener: true
+                    isListener: false
                 }
             },
-            mounted() {
-                document.getElementById('input').addEventListener("blur", this.fn, true)
-                document.getElementById('input').addEventListener("focus", function() {
-                    window.addEventListener("resize", this.keyBoardUp, true)
-                }, true)
-                // if (this.isListener) {
-                //     window.addEventListener("resize", this.keyBoardUp, true)
-                // }
+            mounted() { 
+                document.getElementById('input').addEventListener("focus", this.fn, true)
+                document.getElementById('input').addEventListener("blur", this.fn1, true)
             },
             methods: {
-                fn() {
+                fn1() {
                     window.removeEventListener("resize", this.keyBoardUp, true)
+                },
+                fn() {
+                    window.addEventListener("resize", this.keyBoardUp, true)
                 },
                 keyBoardUp() {
                     // let body = document.getElementsByTagName('body');
@@ -154,7 +152,7 @@
                     })
                     let main = document.getElementById('main');
                     main.scrollTop = main.scrollHeight;
-                    this.isListener = true;
+                    this.isListener = false;
                 }
             },
             destroyed() {
