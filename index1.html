@@ -131,7 +131,8 @@
                 }
             },
             mounted() { 
-                window.addEventListener("resize", this.keyBoardUp, true)
+                let input = document.getElementById('input1');
+                input.addEventListener("focus", this.keyBoardUp, true)
             },
             methods: {
                 keyBoardUp() {
