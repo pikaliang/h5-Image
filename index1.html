@@ -53,7 +53,6 @@
             box-sizing: border-box;
             width: 100%;
             height: calc(100vh - .8rem);
-            padding-bottom: .8rem;
             background: pink;
             overflow: auto;
         }
@@ -132,14 +131,20 @@
                 }
             },
             mounted() {
+                
                 window.addEventListener("resize", this.keyBoardUp, true)
             },
             methods: {
                 keyBoardUp() {
                     let body = document.getElementsByTagName('body');
                     body.scrollTop = 9999999999 + 'px';
-                    let main = document.getElementsById('main');
-                    main.scrollTop = 9999 + 'px';
+                    let main = document.getElementById('main');
+                    main.scrollIntoView({
+                        block: 'start',
+                        behavior: 'smooth'
+                    })
+                    // console.log("main",main.scrollIntoView())
+                    // main.scrollTop = main.scrollTop;
                 }
             },
             destroyed() {
