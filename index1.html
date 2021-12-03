@@ -132,7 +132,7 @@
             },
             mounted() { 
                 document.getElementById('input').addEventListener("focus", this.fn, true)
-                if (this.isListener == true) {
+                if (this.isListener) {
                     window.addEventListener("resize", this.keyBoardUp, true)
                 }
             },
