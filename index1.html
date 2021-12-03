@@ -111,9 +111,9 @@
             methods: {
                 keyBoardUp() {
                     let body = document.getElementsByTagName('body');
-                    console.log("body", body)
                     body.scrollTop = 9999999999 + 'px';
-                    console.log("body.scrollTop", body.scrollTop)
+                    let main = document.getElementsById('main');
+                    main.scrollTop = 9999 + 'px';
                 }
             },
             destroyed() {
@@ -125,7 +125,7 @@
 
 <body>
     <div id="app">
-        <div class="main">
+        <div class="main" id="main">
             <ul>
                 <li v-for="(title, index) in list">{{title}}</li>
             </ul>
