@@ -138,7 +138,10 @@
                     // let body = document.getElementsByTagName('body');
                     // body.scrollTop = 9999999999 + 'px';
                     let input = document.getElementById('input1');
-                    input.scrollIntoViewIfNeeded(true)
+                    input.scrollIntoView({
+                        block: 'end',
+                        behavior: 'smooth'
+                    })
                     let main = document.getElementById('main');
                     console.log("main", main.scrollHeight)
                     main.scrollTop = main.scrollHeight;
