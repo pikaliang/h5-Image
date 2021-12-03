@@ -139,7 +139,9 @@
             },
             methods: {
                 fn() {
-                    this.isListener = true;
+                    setTimeout(() => {
+                        this.isListener = true;
+                    }, 500)
                 },
                 keyBoardUp() {
                     // let body = document.getElementsByTagName('body');
