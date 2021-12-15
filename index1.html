@@ -95,8 +95,8 @@
                 };
             e.addEventListener && (n.addEventListener(o, a, !1), e.addEventListener("DOMContentLoaded", a, !1))
         }(window);
-        new Vue({
-            el: "#app",
+        let app = new Vue({
+//             el: "#app",
             data() {
                 return {
                     list: [
@@ -165,6 +165,7 @@
 
             }
         })
+        app.$mount('#app')
     </script>
 </body>
 
