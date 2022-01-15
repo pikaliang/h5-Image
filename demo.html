@@ -18,8 +18,8 @@
     }
 	</style>
 
-  <script src="js/jquery-3.2.1.min.js"></script>
-  <script src="js/pdf.js"></script>
+  <script src="jquery-3.2.1.min.js"></script>
+  <script src="pdf.js"></script>
 </head>
 <body>
 	<div class="wrapper" id="pdf-container"></div>
@@ -35,7 +35,7 @@
      * 加载pdf
      */
     function loadPdf(fileURL) {
-      PDFJS.workerSrc = 'js/pdf.worker.js';
+      PDFJS.workerSrc = 'pdf.worker.js';
       PDFJS.getDocument(fileURL).then(function (pdf) {
           //用 promise 获取页面
           var id = '';
